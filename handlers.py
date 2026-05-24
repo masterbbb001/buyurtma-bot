@@ -30,7 +30,8 @@ order_msg_ids = {}    # {order_id: (chat_id, message_id)}
 
 async def check_subscription(bot: Bot, user_id: int) -> bool:
     try:
-        member = await bot.get_chat_member(CHANNEL_ID, user_id)
+       member = await bot.get_chat_member(str(CHANNEL_ID), user_id)
+        
         return member.status not in ["left", "kicked"]
     except Exception:
         return False
@@ -44,7 +45,7 @@ async def cmd_start(message: Message, bot: Bot):
     is_subscribed = await check_subscription(bot, user_id)
 
     if not is_subscribed:
-        channel_link = f"https://t.me/{CHANNEL_ID.lstrip('@')}"
+        channel_link = f"https://t.me/{str(CHANNEL_ID).lstrip('@').lstrip('-100')}"
         await message.answer(
             f"👋 Salom, <b>{message.from_user.first_name}</b>!\n\n"
             f"🤖 <b>BuyurtmaUz</b> botiga xush kelibsiz!\n\n"
