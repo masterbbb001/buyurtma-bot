@@ -1,10 +1,6 @@
-BOT_TOKEN = "YOUR_NEW_TOKEN_HERE"  # @BotFather dan yangi token oling!
+import os
 
-# Kanal ID (masalan: @BuyurtmaUzChannel yoki -1001234567890)
-CHANNEL_ID = "@BuyurtmaUzChannel"  # O'zingizning kanalingiz
-
-# Boshliq (admin) Telegram ID
-ADMIN_ID = 123456789  # O'zingizning Telegram ID ingiz (@userinfobot dan oling)
-
-# Buyurtmalar kanaliga forward qilish uchun (ixtiyoriy, alohida admin kanal)
-ORDERS_CHANNEL_ID = "@BuyurtmaUzOrders"  # Yoki ADMIN_ID
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-5216202221"))
+ADMIN_ID = int(os.environ.get("ADMIN_ID", "-5216202221"))
+ORDERS_CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-5216202221"))
