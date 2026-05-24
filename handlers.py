@@ -45,7 +45,7 @@ async def cmd_start(message: Message, bot: Bot):
     is_subscribed = await check_subscription(bot, user_id)
 
     if not is_subscribed:
-        channel_link = f"https://t.me/{str(CHANNEL_ID).lstrip('@').lstrip('-100')}"
+        channel_link = f"https://t.me/{str(CHANNEL_ID).replace('-100', '').replace('@', '')}"
         await message.answer(
             f"👋 Salom, <b>{message.from_user.first_name}</b>!\n\n"
             f"🤖 <b>BuyurtmaUz</b> botiga xush kelibsiz!\n\n"
